@@ -44,35 +44,35 @@ h2> python3 send_normal.py 1
 ```
 
 ## Pre-requisites
-Create a /presence directory
-Download InSDN/Normal_Group/Normal_1/Normal-h3_1.pcap
-Install UFOnet and its dependencies.
+Create a /presence directory\n
+Download InSDN/Normal_Group/Normal_1/Normal-h3_1.pcap\n
+Install UFOnet and its dependencies.\n
 
-UFOnet incorporates hard-coded snippets. Follow these steps to work around this:
+UFOnet incorporates hard-coded snippets. Follow these steps to work around this:\n
 
-most likely, UFOnet TACHYON module is not going to be able to open this dns file.
-go to ufonet/core/mods/tachyon.py
-go to line 32:
-comment out open file block and add your list of dns servers like below:
-        #with open(dns_file) as f: # extract OpenDNS servers from file
-            #dns_d = f.read().splitlines() 
-        #f.close()
-        dns_d=['10.0.3.3']
+most likely, UFOnet TACHYON module is not going to be able to open this dns file.\n
+go to ufonet/core/mods/tachyon.py\n
+go to line 32:\n
+comment out open file block and add your list of dns servers like below:\n
+        #with open(dns_file) as f: # extract OpenDNS servers from file\n
+            #dns_d = f.read().splitlines() \n
+        #f.close()\n
+        dns_d=['10.0.3.3']\n
 
-go to ufonet/core/main.py
-add this code after line 101 (replace directory with working directory)
-self.wwa = '/home/user/Desktop/forwarding/ufonet/'#where we are with the installation
-        l=['mothershipname']
-        for v in self.__dict__:
-            if 'file' in v or v in l:
-                self.__dict__[v]=self.wwa+self.__dict__[v]
-go to ufonet/core/options.py
-add this code after line 26
-self.wwa = '/home/user/Desktop/forwarding/ufonet/'#where we at with the installation
-        for v in self.__dict__:
-            if 'file' in v or v in l:
-                self.__dict__[v]=self.wwa+self.__dict__[v]
-also go to main.py about line 352 and change those lines to the following
-self.wwa = '/home/user/Workspace/forwarding/ufonet/'
-if not os.path.exists(self.wwa+"core/json/"): # create gui json cfg files folder
-    os.mkdir(self.wwa+"core/json/")
+go to ufonet/core/main.py\n
+add this code after line 101 (replace directory with working directory)\n
+self.wwa = '/home/user/Desktop/forwarding/ufonet/'#where we are with the installation\n
+        l=['mothershipname']\n
+        for v in self.__dict__:\n
+            if 'file' in v or v in l:\n
+                self.__dict__[v]=self.wwa+self.__dict__[v]\n
+go to ufonet/core/options.py\n
+add this code after line 26\n
+self.wwa = '/home/user/Desktop/forwarding/ufonet/'#where we at with the installation\n
+        for v in self.__dict__:\n
+            if 'file' in v or v in l:\n
+                self.__dict__[v]=self.wwa+self.__dict__[v]\n
+also go to main.py about line 352 and change those lines to the following\n
+self.wwa = '/home/user/Workspace/forwarding/ufonet/'\n
+if not os.path.exists(self.wwa+"core/json/"): # create gui json cfg files folder\n
+    os.mkdir(self.wwa+"core/json/")\
