@@ -44,6 +44,7 @@ h2> python3 send_normal.py 1
 ```
 
 ## Pre-requisites
+Install P4 as specified in Dr. Vanbever's course on <a href="https://github.com/nsg-ethz/p4-learning">Advanced Topics in Networking</a><br>
 Create a /presence directory<br>
 Download InSDN/Normal_Group/Normal_1/Normal-h3_1.pcap<br>
 Install UFOnet and its dependencies.<br>
