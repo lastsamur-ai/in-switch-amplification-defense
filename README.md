@@ -21,7 +21,7 @@
           +--+
 ```
 
-## Setup
+## Introduction
 
 We launch a DNS amplification attack in the test enviroment. We use mininet and Scapy to regenerate normal traffic from InSDN. Test enviroment includes hosts h1, h2, h3, and h4 that represent
 the victim machine, attacker, DNS server, and zombie (compromised machine), respectively. All machines are accessible across the network over links that connect (h1,s1), (s1,s2), (h2,s2), (h3,s3),
